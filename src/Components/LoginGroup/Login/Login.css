@@ -10,7 +10,7 @@
     object-fit: cover;
 }
 .inputs-field{
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 @media only screen and (max-width: 688px){
@@ -22,7 +22,7 @@
 @media only screen and (min-width: 689px) {
     .login-container{
         display: grid;
-        grid-template-columns: 6fr 6fr;
+        grid-template-columns: 1fr 1fr;
     }
     .inputs-field{
         order: 2;
