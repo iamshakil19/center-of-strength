@@ -1,18 +1,28 @@
 .website-title{
     color: #F34E3A;
 }
+.menu-icon{
+    width: 30px;
+    height: 25px;
+    margin: 10px;
+    cursor: pointer;
+    color: #ffffff;
+}
 .header-container{
     height: 70px;
     width: 90%;
     margin: 0 auto;
     padding: 30px 0;
 }
+.header-menu{
+    text-align: right;
+}
 .header-menu a{
     color: white;
-    margin: 20px 15px;
+    margin: 5px 15px;
     font-size: 18px;
     font-weight: 600;
-    display: block;
+    display: inline-block;
 }
 .login-button{
     color: white;
@@ -23,6 +33,7 @@
     background-color: #F34E3A;
     padding: 4px 20px 6px;
     margin-left: 5px;
+    margin-top: 10px;
 }
 .login-button:hover{
     background-color: #fc2c15;
@@ -38,5 +49,9 @@
     .header-menu {
         display: flex;
         align-items: center;
+        position: static;
+    }
+    .menu-icon{
+        display: none;
     }
 }
