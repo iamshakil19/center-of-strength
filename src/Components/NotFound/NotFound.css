@@ -1,0 +1,14 @@
+.notFound-container {
+    background-image: url(../../Images/not-found.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    /* object-fit: fill; */
+    background-size: 250px;
+    height: 100vh;
+}
+
+@media only screen and (min-width: 688px) {
+    .notFound-container{
+        background-size: 600px;
+    }
+}
