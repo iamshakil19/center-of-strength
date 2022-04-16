@@ -24,9 +24,9 @@ const Header = () => {
                 </div>
             </div>
             <div className={`header-menu absolute ${open ? "right-10" : "top-[-200px]"}`}>
-                <CustomLink to="/">Home</CustomLink>
-                <CustomLink to="/blogs">Blogs</CustomLink>
-                <CustomLink to="/about">About Me</CustomLink>
+                <CustomLink to="/">HOME</CustomLink>
+                <CustomLink to="/blogs">BLOG</CustomLink>
+                <CustomLink to="/about">ABOUT ME</CustomLink>
                 <div>
                     <button onClick={() => navigateToLoginPage()} className='login-button'>Login</button>
                 </div>

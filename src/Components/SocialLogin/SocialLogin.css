@@ -1,0 +1,10 @@
+.socialLogin-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.socialLogin-container img{
+width: 40px;
+margin: 0px 10px;
+cursor: pointer;
+}

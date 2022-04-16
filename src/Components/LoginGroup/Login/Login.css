@@ -1,3 +1,30 @@
 .login-container{
     height: 100vh;
 }
+.input-style{
+    width: 230px;
+}
+.login-image{
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+}
+.inputs-field{
+    margin-top: 50px;
+}
+
+@media only screen and (max-width: 688px){
+    .login-image{
+        display: none;
+    }
+    
+}
+@media only screen and (min-width: 689px) {
+    .login-container{
+        display: grid;
+        grid-template-columns: 6fr 6fr;
+    }
+    .inputs-field{
+        order: 2;
+    }
+}
