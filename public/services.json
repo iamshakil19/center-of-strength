@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "price": 33,
+        "class": 10,
+        "month": 2,
+        "img": "https://i.ibb.co/DpX8NyM/gym2.jpg"
+    },
+    {
+        "id": 2,
+        "price": 40,
+        "class": 15,
+        "month": 2.5,
+        "img": "https://i.ibb.co/JKc8S44/gym3.jpg"
+    },
+    {
+        "id": 3,
+        "price": 50,
+        "class": 20,
+        "month": 3,
+        "img": "https://i.ibb.co/GtnW44D/gym5.jpg"
+    },
+    {
+        "id": 4,
+        "price": 80,
+        "class": 40,
+        "month": 3,
+        "img": "https://i.ibb.co/HnPw5Zm/gym4.jpg"
+    },
+    {
+        "id": 5,
+        "price": 100,
+        "class": 60,
+        "month": 6,
+        "img": "https://i.ibb.co/XV2f37q/gym6.jpg"
+    },
+    {
+        "id": 6,
+        "price": 130,
+        "class": 100,
+        "month": 12,
+        "img": "https://i.ibb.co/LSRVbt1/gym1.jpg"
+    }
+]
