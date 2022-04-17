@@ -1,32 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SocialLogin from '../../SocialLogin/SocialLogin';
 import loginImage from '../../../Images/login-image.jpg'
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import './Register.css'
+import auth from '../../../firebase.init';
 
 
 const Register = () => {
+
+    const [createUserWithEmailAndPassword, user, loading, hookError] =
+    useCreateUserWithEmailAndPassword(auth);
+
     const handleSubmit = event => {
         event.preventDefault()
     }
+
+    const [userInfo, setUserInfo] = useState({
+        email: "",
+        password: "",
+        confirmPass: "",
+    });
+    const [errors, setErrors] = useState({
+        email: "",
+        password: "",
+        general: "",
+    });
+
+    const handleEmail = event => {
+        const emailRegex = /\S+@\S+\.\S+/;
+        const validEmail = emailRegex.test(event.target.value);
+
+        if(validEmail){
+            setUserInfo({...userInfo, email: event.target.value})
+            setErrors({...errors, email: ""})
+        }
+        else{
+            setErrors({...errors, email: "Invalid email"})
+            setUserInfo({...userInfo, email: ""})
+        }
+    }
+
     return (
         <div>
             <h2 className='text-white text-center my-10 text-4xl font-bold font-extralight'>Register</h2>
             <div className='login-container'>
                 <form onSubmit={handleSubmit} className='inputs-field'>
-                    <div className='flex justify-center'>
-                        <div className=''>
-                            <p className='text-white mb-2'>Name</p>
-                            <input className='outline-0 bg-transparent text-white input-style ' type="text" name="name" id="name" placeholder='Type your name' required />
-                            <div style={{ height: "1px", width: "280px" }} className="bg-slate-400"></div>
-                        </div>
-                    </div>
                     
                     <div className='flex justify-center'>
                         <div className=''>
                             <p className='text-white mb-2 mt-5'>Email</p>
-                            <input className='outline-0 bg-transparent text-white input-style ' type="email" name="email" id="email" placeholder='Type your email' required />
+                            <input onChange={handleEmail} className='outline-0 bg-transparent text-white input-style ' type="email" name="email" id="email" placeholder='Type your email' required />
                             <div style={{ height: "1px", width: "280px" }} className="bg-slate-400"></div>
+                            {
+                                errors?.email && <p className='text-red-700'>{errors.email}</p>
+                            }
                         </div>
                     </div>
 

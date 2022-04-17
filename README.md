@@ -10,12 +10,12 @@ Live Website Link [center of strength](https://github.com/facebook/create-react-
 * If you want you can also login with email password or you can also login with facebook / google/ github.
 * There are also blog pages and about me pages.
 
-## Technology Used
-### react firebase hooks
-### react router
-### tailwind
-### react toastify
-### daisyUI Tailwind css components
+## `Technology Used`
+### `react firebase hooks`
+### `react router`
+### `tailwind`
+### `react toastify`
+### `daisyUI Tailwind css components`
 
 
 

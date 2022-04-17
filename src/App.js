@@ -10,6 +10,8 @@ import Register from './Components/LoginGroup/Register/Register';
 import Checkout from './Components/Checkout/Checkout';
 import Footer from './Components/Footer/Footer';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
+import AllProteins from './Components/AllProteins/AllProteins';
+import AllServices from './Components/AllServices/AllServices';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
         <Route path='/about' element={<About />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
+        <Route path='/allProteins' element={<AllProteins/>}></Route>
+        <Route path='/allServices' element={<AllServices/>}></Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
       <Footer></Footer>
