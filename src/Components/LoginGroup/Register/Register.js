@@ -52,12 +52,6 @@ const Register = () => {
                         </div>
                     </div>
 
-                    <div className='flex justify-center mt-3'>
-                        <div>
-                            <p className=''><Link to="/" ><span className='text-blue-500'>Forgot Password ?</span></Link></p>
-                        </div>
-                    </div>
-
                     <div className='flex justify-center my-7'>
                         <input className='text-white text-lg font-semibold border py-1 px-4 rounded hover:bg-stone-800 duration-700 cursor-pointer' type="submit" value="Register" />
                     </div>

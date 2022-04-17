@@ -22,5 +22,17 @@
         "img": "https://i.ibb.co/1M7bvgV/protein4.png",
         "name": "Protein 100% Orange",
         "price": 90
+    },
+    {
+        "id": 5,
+        "img": "https://i.ibb.co/pX43bpK/protein3.png",
+        "name": "Protein 100% Pest2",
+        "price": 70
+    },
+    {
+        "id": 6,
+        "img": "https://i.ibb.co/2hkkXBY/protein2.png",
+        "name": "Protein 100% Purple2",
+        "price": 75
     }
 ]
