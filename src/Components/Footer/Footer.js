@@ -4,7 +4,7 @@ import './Footer.css'
 const Footer = () => {
     return (
         <div className='footer-container'>
-            <footer>
+            <footer className='child-footer-container'>
                 <div className='mb-7'>
                     <h3 className='text-white text-xl font-bold mb-2'>Quick Links</h3>
                     <Link to="/about">About</Link>
