@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Center Of Strength
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Website Link [center of strength](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

@@ -14,11 +14,11 @@ const SocialLogin = () => {
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    const [signInWithFacebook, FacebookUser, loading, facebookError] = useSignInWithFacebook(auth)
+    const [signInWithFacebook, facebookUser, loading, facebookError] = useSignInWithFacebook(auth)
     const [signInWithGoogle, googleUser, loading1, googleError] = useSignInWithGoogle(auth)
     const [signInWithGithub, githubUser, loading2, githubError] = useSignInWithGithub(auth)
 
-if(googleUser){
+if(googleUser || facebookUser){
     navigate(from, { replace: true });
 }
 
