@@ -59,7 +59,7 @@ const Register = () => {
                     </div>
 
                     <div className='flex justify-center my-7'>
-                        <input className='text-white text-lg font-semibold border py-1 px-4 rounded hover:bg-stone-800 duration-700' type="submit" value="Login" />
+                        <input className='text-white text-lg font-semibold border py-1 px-4 rounded hover:bg-stone-800 duration-700 cursor-pointer' type="submit" value="Register" />
                     </div>
                     <p className='text-white text-center'>Or login with</p>
                     <SocialLogin></SocialLogin>

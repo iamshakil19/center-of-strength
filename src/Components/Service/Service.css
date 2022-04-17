@@ -12,6 +12,10 @@
 @media only screen and (max-width: 688px) {
     .service-container{
         width: 250px;
-        height: 520px;
+        height: 540px;
+        position: relative;
+    }
+    .purchase-btn{
+        position: absolute;
     }
 }

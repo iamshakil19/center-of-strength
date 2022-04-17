@@ -17,7 +17,7 @@ const Service = ({service}) => {
             <h3 className='mt-1 text-xl'>{month} Months</h3>
             <p className='mt-1 text-lg'>{access}</p>
             <p className='mt-1 px-4'>{text}</p>
-            <button onClick={navigateToCheckout} className='mt-4 border py-2 px-6 rounded hover:bg-stone-800 duration-500 font-semibold'>Purchase</button>
+            <button onClick={navigateToCheckout} className='mt-4 border py-2 px-6 rounded hover:bg-stone-800 duration-500 font-semibold bottom-4 right-16 purchase-btn'>Purchase</button>
         </div>
     );
 };
