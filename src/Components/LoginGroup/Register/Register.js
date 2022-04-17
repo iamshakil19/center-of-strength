@@ -13,7 +13,7 @@ const Register = () => {
         <div>
             <h2 className='text-white text-center my-10 text-4xl font-bold font-extralight'>Register</h2>
             <div className='login-container'>
-                <form onClick={handleSubmit} className='inputs-field'>
+                <form onSubmit={handleSubmit} className='inputs-field'>
                     <div className='flex justify-center'>
                         <div className=''>
                             <p className='text-white mb-2'>Name</p>

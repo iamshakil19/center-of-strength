@@ -38,7 +38,7 @@
     background-color: #DC2626;
 }
 
-@media only screen and (min-width: 688px) {
+@media only screen and (min-width: 992px) {
     .header-container{
         display: flex;
         justify-content: space-between;

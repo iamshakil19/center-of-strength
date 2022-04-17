@@ -35,6 +35,7 @@ const Header = () => {
             </div>
             <div className={`header-menu absolute ${open ? "right-10" : "top-[-200px]"}`}>
                 <CustomLink to="/">HOME</CustomLink>
+                <CustomLink to="/checkout">CHECKOUT</CustomLink>
                 <CustomLink to="/blogs">BLOG</CustomLink>
                 <CustomLink to="/about">ABOUT ME</CustomLink>
                 <div>

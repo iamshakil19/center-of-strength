@@ -14,7 +14,7 @@ const Login = () => {
         <div>
             <h2 className='text-white text-center my-10 text-4xl font-bold font-extralight'>Login</h2>
             <div className='login-container'>
-                <form onClick={handleSubmit} className='inputs-field'>
+                <form onSubmit={handleSubmit} className='inputs-field'>
                     <div className='flex justify-center'>
                         <div className=''>
                             <p className='text-white mb-2'>Email</p>
@@ -30,6 +30,7 @@ const Login = () => {
                             <div style={{ height: "1px", width: "280px" }} className="bg-slate-400"></div>
                         </div>
                     </div>
+
                     <div className='flex justify-center mt-4'>
                         <div>
                             <p className=''><span className='text-white'>New in strength center ? <Link to="/register" ><span className='text-blue-500'>Please Register</span></Link></span></p>
