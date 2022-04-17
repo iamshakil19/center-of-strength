@@ -2,43 +2,55 @@
     {
         "id": 1,
         "price": 33,
-        "class": 10,
+        "gymClass": 10,
         "month": 2,
+        "access": "Limited Access",
+        "text": "If you have less time then this is best for you.",
         "img": "https://i.ibb.co/DpX8NyM/gym2.jpg"
     },
     {
         "id": 2,
         "price": 40,
-        "class": 15,
+        "gymClass": 15,
         "month": 2.5,
+        "access": "Limited Access",
+        "text": "If you want to build yourself up with a little more time, take it.",
         "img": "https://i.ibb.co/JKc8S44/gym3.jpg"
     },
     {
         "id": 3,
         "price": 50,
-        "class": 20,
+        "gymClass": 20,
         "month": 3,
+        "access": "Limited Access",
+        "text": "This is the most popular package among our packages.",
         "img": "https://i.ibb.co/GtnW44D/gym5.jpg"
     },
     {
         "id": 4,
         "price": 80,
-        "class": 40,
+        "gymClass": 40,
         "month": 3,
+        "access": "All Access",
+        "text": "Best package for girls and you will get all access to this package",
         "img": "https://i.ibb.co/HnPw5Zm/gym4.jpg"
     },
     {
         "id": 5,
         "price": 100,
-        "class": 60,
+        "gymClass": 60,
         "month": 6,
+        "access": "All Access",
+        "text": "If you want to build yourself up slowly then this is for you.",
         "img": "https://i.ibb.co/XV2f37q/gym6.jpg"
     },
     {
         "id": 6,
         "price": 130,
-        "class": 100,
+        "gymClass": 100,
         "month": 12,
+        "access": "All Access",
+        "text": "If you have a lot of time and want to build yourself up, take it.",
         "img": "https://i.ibb.co/LSRVbt1/gym1.jpg"
     }
 ]

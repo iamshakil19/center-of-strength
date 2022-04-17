@@ -1,0 +1,12 @@
+@media only screen and (min-width: 688px) {
+    .services-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media only screen and (min-width: 992px){
+.services-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+}

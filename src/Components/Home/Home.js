@@ -1,6 +1,7 @@
 import React from 'react';
 import girlBanner from '../../Images/girl-banner.jpg'
-import GymPackages from '../GymPackages/GymPackages';
+import Proteins from '../Proteins/Proteins';
+import Services from '../Services/Services';
 import './Home.css'
 
 const Home = () => {
@@ -9,7 +10,8 @@ const Home = () => {
             <div className='banner-section'>
                 <img src={girlBanner} alt="" />
             </div>
-            <GymPackages></GymPackages>
+            <Services></Services>
+            <Proteins></Proteins>
         </div>
     );
 };
