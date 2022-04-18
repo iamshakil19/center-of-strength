@@ -122,8 +122,17 @@ const Login = () => {
                         <div>
                             <p onClick={async () => {
                                 await sendPasswordResetEmail(userInfo.email);
-                                alert("Email Sent")
-                            }} className=''><Link to="/" ><span className='text-blue-500'>Forgot Password ?</span></Link></p>
+                                toast.success('Email Sent', {
+                                    position: "top-center",
+                                    autoClose: 5000,
+                                    hideProgressBar: false,
+                                    closeOnClick: true,
+                                    pauseOnHover: true,
+                                    draggable: true,
+                                    progress: undefined,
+                                    });
+
+                            }} className=''><button><span className='text-blue-500'>Forgot Password ?</span></button></p>
                         </div>
                     </div>
                     <div className='flex justify-center my-7'>

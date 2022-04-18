@@ -5,6 +5,10 @@
     margin: 20px auto;
     border-radius: 5px;
 }
+.protein-container:hover{
+    transform: scale(1.1);
+    transition: .4s ease-in-out;
+}
 .protein-container img{
     display: block;
     margin: 0 auto;
@@ -15,6 +19,7 @@
         width: 280px;
         height: 400px;
         position: relative;
+        margin: 40px auto;
     }
     .purchase-btn{
         position: absolute;
