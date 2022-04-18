@@ -1,44 +1,70 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SocialLogin from '../../SocialLogin/SocialLogin';
 import loginImage from '../../../Images/login-image.jpg'
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import './Register.css'
 import auth from '../../../firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
-
-    const [createUserWithEmailAndPassword, user, loading, hookError] =
+    const [createUserWithEmailAndPassword, user, loading, firebaseError] =
     useCreateUserWithEmailAndPassword(auth);
-
-    const handleSubmit = event => {
-        event.preventDefault()
-    }
 
     const [userInfo, setUserInfo] = useState({
         email: "",
         password: "",
-        confirmPass: "",
-    });
-    const [errors, setErrors] = useState({
-        email: "",
-        password: "",
-        general: "",
-    });
+    })
+    const [customError, setCustomError] = useState({
+        emailError: "",
+        passwordError: "",
+        othersError: ""
+    })
 
-    const handleEmail = event => {
-        const emailRegex = /\S+@\S+\.\S+/;
-        const validEmail = emailRegex.test(event.target.value);
+    const handleInputEmail = event => {
+        const emailRegex = /\S+@\S+\.\S+/
+        const validEmail = emailRegex.test(event.target.value)
+        if (validEmail) {
+            setUserInfo({ ...userInfo, email: event.target.value })
+            setCustomError({ ...customError, emailError: "" })
+        }
+        else {
+            setCustomError({ ...customError, emailError: "Invalid email" })
+            setUserInfo({ ...userInfo, email: "" })
+        }
+    }
 
-        if(validEmail){
-            setUserInfo({...userInfo, email: event.target.value})
-            setErrors({...errors, email: ""})
+    const handleInputPassword = event => {
+        const passwordRegex = /.{6,}/
+        const validPassword = passwordRegex.test(event.target.value)
+        if (validPassword) {
+            setUserInfo({ ...userInfo, password: event.target.value })
+            setCustomError({ ...customError, passwordError: "" })
         }
-        else{
-            setErrors({...errors, email: "Invalid email"})
-            setUserInfo({...userInfo, email: ""})
+        else {
+            setCustomError({ ...customError, passwordError: "Minimum 6 character length" })
+            setUserInfo({ ...userInfo, password: "" })
         }
+    }
+
+    useEffect(() => {
+        if (firebaseError) {
+            toast.error(`${firebaseError.message}`, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+        }
+    }, [firebaseError])
+
+    const handleSubmit = event => {
+        event.preventDefault()
     }
 
     return (
@@ -50,11 +76,8 @@ const Register = () => {
                     <div className='flex justify-center'>
                         <div className=''>
                             <p className='text-white mb-2 mt-5'>Email</p>
-                            <input onChange={handleEmail} className='outline-0 bg-transparent text-white input-style ' type="email" name="email" id="email" placeholder='Type your email' required />
+                            <input className='outline-0 bg-transparent text-white input-style ' type="email" name="email" id="email" placeholder='Type your email' required />
                             <div style={{ height: "1px", width: "280px" }} className="bg-slate-400"></div>
-                            {
-                                errors?.email && <p className='text-red-700'>{errors.email}</p>
-                            }
                         </div>
                     </div>
 
