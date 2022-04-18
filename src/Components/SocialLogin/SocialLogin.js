@@ -6,6 +6,9 @@ import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 
 import './SocialLogin.css'
 import auth from '../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { sendEmailVerification } from 'firebase/auth';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SocialLogin = () => {
@@ -23,6 +26,17 @@ const SocialLogin = () => {
             navigate(from, { replace: true });
         }
     })
+    if ( googleError ) {
+        toast.error(`${googleError?.message}`, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+    }
 
     return (
         <div className='socialLogin-container'>
@@ -31,6 +45,17 @@ const SocialLogin = () => {
             </button>
             <img onClick={() => signInWithGoogle()} src={googleLogo} alt="" />
             <img onClick={() => signInWithGithub()} src={githubLogo} alt="" />
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     );
 };

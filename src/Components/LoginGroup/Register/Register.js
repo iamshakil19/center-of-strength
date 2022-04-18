@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Register = () => {
     const location = useLocation()
     const [createUserWithEmailAndPassword, user, loading, firebaseError] =
-        useCreateUserWithEmailAndPassword(auth);
+        useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const [userInfo, setUserInfo] = useState({
         email: "",

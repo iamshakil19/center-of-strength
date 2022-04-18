@@ -7,12 +7,15 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 
 
 const Login = () => {
     const navigate = useNavigate()
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
+
+    const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
 
     const [userInfo, setUserInfo] = useState({
         email: "",
@@ -72,12 +75,12 @@ const Login = () => {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                });
+            });
         }
     }, [firebaseError])
 
-    useEffect(()=>{
-        if(user){
+    useEffect(() => {
+        if (user) {
             navigate(from, { replace: true });
         }
     })
@@ -117,7 +120,10 @@ const Login = () => {
                     </div>
                     <div className='flex justify-center mt-3'>
                         <div>
-                            <p className=''><Link to="/" ><span className='text-blue-500'>Forgot Password ?</span></Link></p>
+                            <p onClick={async () => {
+                                await sendPasswordResetEmail(userInfo.email);
+                                alert("Email Sent")
+                            }} className=''><Link to="/" ><span className='text-blue-500'>Forgot Password ?</span></Link></p>
                         </div>
                     </div>
                     <div className='flex justify-center my-7'>
