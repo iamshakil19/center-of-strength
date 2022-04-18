@@ -1,0 +1,29 @@
+.about-container img{
+width: 250px;
+display: block;
+margin: 0 auto;
+border-radius: 5px;
+}
+.about-container {
+    margin: 50px 0;
+    height: 100vh;
+}
+.text-container{
+    width: 290px;
+    margin: 0 auto;
+}
+@media only screen and (min-width: 688px) {
+    .about-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .about-container img{
+        width: 400px;
+    }
+    .text-container{
+        width: 450px;
+        margin-top: 100px;
+    }
+}

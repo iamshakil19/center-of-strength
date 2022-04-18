@@ -6,7 +6,7 @@ const AllServices = () => {
     const [services, setServices] = useServices()
     return (
         <div>
-            <h1 className='mt-12 mb-5 protein-title text-center'>All Packages</h1>
+            <h1 className='mt-12 mb-5 protein-title text-center'>All Services</h1>
             <div className='services-container'>
                 {
                     services.map(service => <AllService
