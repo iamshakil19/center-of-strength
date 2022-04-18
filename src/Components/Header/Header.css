@@ -1,5 +1,6 @@
 .website-title{
     color: #DC2626;
+    font-family: 'Roboto Slab', serif;
 }
 .menu-icon{
     width: 30px;
@@ -20,6 +21,7 @@
 .header-menu a{
     color: white;
     margin: 5px 15px;
+    font-family: 'Roboto Slab', serif;
     font-size: 17px;
     font-weight: 600;
     display: inline-block;

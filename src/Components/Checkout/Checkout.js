@@ -5,7 +5,7 @@ import './Checkout.css'
 const Checkout = () => {
     const handleSubmit = event => {
         event.preventDefault()
-        toast.success('Order Successfully Placed', {
+        toast.success('Thank you for booking', {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
