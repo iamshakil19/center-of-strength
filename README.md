@@ -1,6 +1,6 @@
 # Center Of Strength
 
-Live Website Link [center of strength](https://github.com/facebook/create-react-app).
+Live Website Link [center of strength](https://assignment10-e4ffa.web.app/).
 
 * This is a gym website.
 * Here you will see our packages.
