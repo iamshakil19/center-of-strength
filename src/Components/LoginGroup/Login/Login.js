@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Login.css'
 import loginImage from '../../../Images/login-image.jpg'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../../SocialLogin/SocialLogin';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
@@ -10,10 +10,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
+    const navigate = useNavigate()
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
     const [userInfo, setUserInfo] = useState({
         email: "",
-        password: "",
-        confirmPass: ""
+        password: ""
     })
     const [customError, setCustomError] = useState({
         emailError: "",
@@ -72,6 +75,12 @@ const Login = () => {
                 });
         }
     }, [firebaseError])
+
+    useEffect(()=>{
+        if(user){
+            navigate(from, { replace: true });
+        }
+    })
 
 
     return (

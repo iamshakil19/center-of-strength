@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../../SocialLogin/SocialLogin';
 import loginImage from '../../../Images/login-image.jpg'
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
@@ -10,12 +10,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
+    const location = useLocation()
     const [createUserWithEmailAndPassword, user, loading, firebaseError] =
-    useCreateUserWithEmailAndPassword(auth);
+        useCreateUserWithEmailAndPassword(auth);
 
     const [userInfo, setUserInfo] = useState({
         email: "",
         password: "",
+        confirmPass: ""
     })
     const [customError, setCustomError] = useState({
         emailError: "",
@@ -49,6 +51,18 @@ const Register = () => {
         }
     }
 
+    const handleInputConfirmPassword = event => {
+
+        if (event.target.value === userInfo.password) {
+            setUserInfo({ ...userInfo, confirmPass: event.target.value })
+            setCustomError({ ...customError, passwordError: "" })
+        }
+        else {
+            setCustomError({ ...customError, passwordError: "Password don't match" })
+            setUserInfo({ ...userInfo, confirmPass: "" })
+        }
+    }
+
     useEffect(() => {
         if (firebaseError) {
             toast.error(`${firebaseError.message}`, {
@@ -59,12 +73,21 @@ const Register = () => {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                });
+            });
         }
     }, [firebaseError])
 
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || "/"
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true })
+        }
+    })
+
     const handleSubmit = event => {
         event.preventDefault()
+        createUserWithEmailAndPassword(userInfo.email, userInfo.password);
     }
 
     return (
@@ -72,27 +95,33 @@ const Register = () => {
             <h2 className='text-white text-center my-10 text-4xl font-bold font-extralight'>Register</h2>
             <div className='login-container'>
                 <form onSubmit={handleSubmit} className='inputs-field'>
-                    
+
                     <div className='flex justify-center'>
                         <div className=''>
                             <p className='text-white mb-2 mt-5'>Email</p>
-                            <input className='outline-0 bg-transparent text-white input-style ' type="email" name="email" id="email" placeholder='Type your email' required />
+                            <input onChange={handleInputEmail} className='outline-0 bg-transparent text-white input-style ' type="email" name="email" id="email" placeholder='Type your email' required />
                             <div style={{ height: "1px", width: "280px" }} className="bg-slate-400"></div>
+                            {
+                                customError?.emailError && <p className='text-red-500 mt-1 text-sm'>{customError.emailError}</p>
+                            }
                         </div>
                     </div>
 
                     <div className='flex justify-center'>
                         <div className=''>
                             <p className='text-white mb-2 mt-5'>Password</p>
-                            <input className='outline-0 bg-transparent text-white input-style ' type="password" name="password" id="password" placeholder='Type your password' required />
+                            <input onChange={handleInputPassword} className='outline-0 bg-transparent text-white input-style ' type="password" name="password" id="password" placeholder='Type your password' required />
                             <div style={{ height: "1px", width: "280px" }} className="bg-slate-400"></div>
+                            {
+                                customError?.passwordError && <p className='text-red-500 mt-1 text-sm'>{customError.passwordError}</p>
+                            }
                         </div>
                     </div>
 
                     <div className='flex justify-center'>
                         <div className=''>
                             <p className='text-white mb-2 mt-5'>Confirm Password</p>
-                            <input className='outline-0 bg-transparent text-white input-style ' type="password" name="confirm-password" id="confirm-password" placeholder='Type your confirm password' required />
+                            <input onChange={handleInputConfirmPassword} className='outline-0 bg-transparent text-white input-style ' type="password" name="confirm-password" id="confirm-password" placeholder='Type your confirm password' required />
                             <div style={{ height: "1px", width: "280px" }} className="bg-slate-400"></div>
                         </div>
                     </div>
@@ -113,6 +142,17 @@ const Register = () => {
                     <img className='login-image rounded-3xl' src={loginImage} alt="" />
                 </div>
             </div>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     );
 };

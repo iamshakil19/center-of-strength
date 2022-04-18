@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import facebookLogo from '../../Images/facebook.png'
 import googleLogo from '../../Images/google.png'
 import githubLogo from '../../Images/github.png'
@@ -18,9 +18,11 @@ const SocialLogin = () => {
     const [signInWithGoogle, googleUser, loading1, googleError] = useSignInWithGoogle(auth)
     const [signInWithGithub, githubUser, loading2, githubError] = useSignInWithGithub(auth)
 
-if(googleUser || facebookUser || githubUser){
-    navigate(from, { replace: true });
-}
+    useEffect(() => {
+        if (googleUser || facebookUser || githubUser) {
+            navigate(from, { replace: true });
+        }
+    })
 
     return (
         <div className='socialLogin-container'>
